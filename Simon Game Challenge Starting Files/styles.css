@@ -1,79 +1,185 @@
 body {
   text-align: center;
   background-color: #011F3F;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
-#level-title {
-  font-family: 'Shizuru', cursive;
-  font-size: 3rem;
-  margin:  5%;
-  color: #FEF2BF;
+#title {
+  font-size: 2.5rem;
+  margin:  3%;
+  color: white;
+}
+
+
+button {
+  margin: auto 50px;
+  background-color: transparent;
+  color: grey;
+  font-size: large;
+  font-family: 'Montserrat Alternates', sans-serif;
+  height: 40px;
+  width: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button.x {
+  display: inline;
+  color: white;
+}
+
+.reset {
+  height: 25px;
+  width: 25px;
+  color: white;
+}
+.instructions {
+  margin: auto 50px;
+  position: absolute;
+  width: 80%;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  border-radius: 10px;
+  background-color: rgba(23, 23, 100, 0.9);
+  display: none;
+  color: white;
+  text-align: left;
+  line-height: 2em;
+}
+
+li {
+  padding: 10px;
+}
+
+.active {
+  display: flex;
+  z-index: 2;
 }
 
 .container {
-  display: block;
-  width: 50%;
+  display: flex;
+  position: relative;
+  border-radius: 50%;
   margin: auto;
+  /* padding: 5vmin; */
+  width: 75vmin;
+  height: 75vmin;
+  background: rgb(244,240,240);
+  background: radial-gradient(circle, rgba(244,240,240,1) 0%, rgba(0,0,0,1) 30%);
+  border: 5px solid;
+  box-shadow: 10px 10px 8px black;
 
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .btn {
-  margin: 25px;
-  display: inline-block;
-  height: 200px;
-  width: 200px;
-  border: 10px solid black;
-  border-radius: 20%;
+  position: absolute;
+  height: 47%;
+  width: 47%;
+  margin: 2%;
+  box-shadow: 0px 0px 10px rgb(148, 143, 143);
+  border: solid 1px black;
+  cursor: pointer;
+  } 
+
+ .yellow {
+  top: 50%;
+  border-radius: 5% 5% 5% 100%;
+  background: rgb(244,240,240);
+  background: radial-gradient(circle, rgba(244,240,240,1) 1%, rgba(246,243,92,1) 72%);
+
 }
 
-/* mobile */
-@media only screen and (max-width: 600px) {
-  #level-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 2rem;
-    margin:  5%;
-    color: #FEF2BF;
-  }
-  
+.green {
+  border-radius: 100% 5% 5% 5%;
+  background: rgb(244,240,240);
+  background: radial-gradient(circle, rgba(244,240,240,1) 1%, rgba(23,187,41,1) 72%);
 
-  .container {
-    display: block;
-    width: 70%;
-    margin: auto;
-  
-  }
+}
 
-  .btn {
-    margin: 5px;
-    display: inline-block;
-    height: 100px;
-    width: 100px;
-    border: 10px solid black;
-    border-radius: 20%;
-  }}
+ .red {
+  border-radius: 5% 100% 5% 5%;
+  background: rgb(244,240,240);
+  background: radial-gradient(circle, rgba(244,240,240,1) 1%, rgba(228,32,32,1) 72%);
+
+}
+.blue {
+  top: 50%;
+  border-radius: 5% 5% 100% 5%;
+  background: rgb(244,240,240);
+  background: radial-gradient(circle, rgba(244,240,240,1) 1%, rgba(21,34,190,1) 72%);
+
+
+}
+
+
+.small {
+  height: 35%;
+  width: 35%;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  background-color: black;
+  color: white;
+  z-index: 1;
+  top: 35%;
+  right: 32%;
+  box-shadow: 0px 0px 10px rgb(31, 30, 30);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+
+.biggerText {
+  font-size: 1.5em;
+}
 
 .game-over {
   background-color: red;
   opacity: 0.8;
 }
 
-.red {
-  background-color: red;
-}
-
-.green {
-  background-color: green;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.yellow {
-  background-color: yellow;
-}
 
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+/* mobile */
+@media only screen and (max-width: 600px) {
+  #title {
+    font-size: 2rem;
+    margin:  5%;
+    color: white;
+  }
+  
+
+  .container {
+    display: flex;
+    width: 70%;
+    margin: auto;
+  }
+
+  .small {
+    font-size: 0.7em;
+  }
+
+  .instructions {
+    height: 100vh;
+    width: 100%;
+    line-height: normal;
+    margin: 0 auto;
+  }
+
+  button.x {
+    float: right;
+    color: white;
+  }
 }

@@ -2,32 +2,52 @@
 <html lang="en" dir="ltr">
 
 <head>
+  
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta charset="utf-8">
-  <title>Simon</title>
+  <title>Simon by Emilia</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shizuru&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&display=swap" rel="stylesheet"> 
 </head>
 
 <body>
-  <h1 id="level-title">Press A Key to Start</h1>
+  <button class="r"><img src="Flat_restart_icon.png" class="reset"></button>
+  <button class="info">i</button>
+  <div class="instructions">   
+<ol>
+  <li>Press the SIMON button to start. Simon will give the first signal. Repeat the signal by pressing the same color lens.  </li>
+  <li>Simon will duplicate the first signal and add one. Repeat these two signals by pressing the same color lenses, in order.</li>  
+  <li>Simon will duplicate these first two signals and add one.</li>
+  <li>Continue playing as long as you can repeat each sequence of signals correctly.</li>
+  <li>If you fail to repeat a sequence exactly Simon responds with a "RAZZ" sound. This means you've lost, and the sequence of signals ends.</li>
+</ol>
+<button class="x">x</button>
+  </div>
+  <h1 id="title">Press SIMON to start</h1>
   <div class="container">
-    <div lass="row">
+    <div class="row">
 
       <div type="button" id="green" class="btn green">
 
       </div>
-
-      <div type="button" id="red" class="btn red">
+      <div type="button" id="yellow" class="btn yellow">
+      
 
       </div>
     </div>
 
     <div class="row">
-
-      <div type="button" id="yellow" class="btn yellow">
+      <div  id="level-title" class="small">
+        <h2>
+          Simon
+        </h2>
+        <p>
+          by Emilia
+        </p>
+      </div>
+      <div type="button" id="red" class="btn red">
 
       </div>
       <div type="button" id="blue" class="btn blue">

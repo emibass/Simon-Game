@@ -1,3 +1,10 @@
+$(".info").click(function(){
+    $(".instructions").toggleClass("active");
+});
+
+$(".x").click(function(){
+    $(".instructions").toggleClass("active");
+})
 
 buttonColours = ["red", "blue", "green", "yellow"];
 gamePattern =[];
@@ -5,13 +12,22 @@ userClickedPattern = [];
 let level = 0;
 let started = false;
 
-$(document).keypress(function(){
+$(".small").click(function(){
 
 if(!started){
-    $("#level-title").text("Level " + level);
+    $("#title").text("Let's play!");
+    $("#level-title").text("LEVEL " + level)
     nextSequence();
     started = true;
 }});
+
+$(".r").click(function(){
+    startOver();
+    $("#title").text("Press SIMON to start");
+    $("#level-title").text("SIMON");
+
+ 
+});
 
 //Check Which Button is Pressed
 
@@ -36,7 +52,7 @@ function checkAnswer(currentLevel) {
     
             setTimeout (function(){
             nextSequence()
-            }, 1000);
+            }, 600);
         }
     
      } else {
@@ -47,14 +63,19 @@ function checkAnswer(currentLevel) {
                 $("body").removeClass("game-over");
                }, 200);
             
-            $("#level-title").text("Game Over, Press Any Key to Restart");
+            $("#title").text("Game Over, Press SIMON to Restart");
+            $("#level-title").text("SIMON");
 
             startOver();
         }
         
     }
-    
-    
+
+//Add Sounds to Button Clicks
+function playSound (name){
+        var audio = new Audio("sounds/" + name + ".mp3");
+        audio.play();
+    }
 
 
 //main sequence function
@@ -65,19 +86,28 @@ function nextSequence(){
     let randomNumber = Math.floor(Math.random() * 4);
     let randomChosenColour = buttonColours[randomNumber];
     gamePattern.push(randomChosenColour);
-
-//Show the Sequence to the User with Animations and Sounds
-$("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
-
-playSound(randomChosenColour);
-
+    playPattern(); // play updated gamePattern to user
 };
-//Add Sounds to Button Clicks
 
-function playSound (name){
-    var audio = new Audio("sounds/" + name + ".mp3");
-    audio.play();
+
+
+/*
+  Plays complete game pattern for user each level
+*/
+function playPattern() {
+  var i = 0;
+  const intervalId = setInterval(function() {
+    $("#"+gamePattern[i]).fadeOut(100).fadeIn(100);
+    playSound(gamePattern[i]);
+    i += 1;
+    if (i === gamePattern.length) {
+        clearInterval(intervalId);
+      }
+    }, 600);
 }
+
+
+
 
 
 //Add Animations to User Clicks
